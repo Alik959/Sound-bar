@@ -6,23 +6,26 @@ export default function Header() {
   return (
     <header className="w-full bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white shadow-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        {/* Logo / Brand */}
         <Link href="/" className="text-2xl font-bold tracking-wide">
-          🎵 MusicWeb
+          Sound Bar
         </Link>
-
-        {/* Navigation */}
         <nav className="flex gap-6">
-          <Link href="/" className="hover:text-pink-400 transition-colors">
-            Home
-          </Link>
-          <Link href="/artists" className="hover:text-pink-400 transition-colors">
+          <Link
+            href="/artists"
+            className="hover:text-pink-400 transition-colors"
+          >
             Artists
           </Link>
-          <Link href="/albums" className="hover:text-pink-400 transition-colors">
+          <Link
+            href="/albums"
+            className="hover:text-pink-400 transition-colors"
+          >
             Albums
           </Link>
-          <Link href="/genres" className="hover:text-pink-400 transition-colors">
+          <Link
+            href="/genres"
+            className="hover:text-pink-400 transition-colors"
+          >
             Genres
           </Link>
           <Link href="/about" className="hover:text-pink-400 transition-colors">

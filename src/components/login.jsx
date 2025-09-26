@@ -1,96 +1,99 @@
-"use client"
-import { useState } from "react"
+"use client";
+import { useState } from "react";
 
 export default function AuthForm() {
-  const [mode, setMode] = useState("login")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [confirmPassword, setConfirmPassword] = useState("")
-  const [message, setMessage] = useState(null)
+  const [mode, setMode] = useState("login");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [message, setMessage] = useState(null);
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const users = JSON.parse(localStorage.getItem("users") || "[]")
+    const users = JSON.parse(localStorage.getItem("users") || "[]");
 
     if (mode === "register") {
       if (!email || !password || !confirmPassword) {
-        setMessage({ type: "danger", text: "Бүх талбарыг бөглөнө үү." })
-        return
+        setMessage({ type: "danger", text: "Бүх талбарыг бөглөнө үү." });
+        return;
       }
       if (password !== confirmPassword) {
-        setMessage({ type: "danger", text: "Нууц үг таарахгүй байна!" })
-        return
+        setMessage({ type: "danger", text: "Нууц үг таарахгүй байна!" });
+        return;
       }
 
       if (users.find((u) => u.email === email)) {
         setMessage({
           type: "danger",
           text: "Энэ имэйл аль хэдийн бүртгэлтэй байна!",
-        })
-        return
+        });
+        return;
       }
 
-      const newUser = { email, password }
-      users.push(newUser)
-      localStorage.setItem("users", JSON.stringify(users))
+      const newUser = { email, password };
+      users.push(newUser);
+      localStorage.setItem("users", JSON.stringify(users));
 
       setMessage({
         type: "success",
         text: "Амжилттай бүртгүүллээ! Нэвтэрнэ үү.",
-      })
-      setMode("login")
-      setEmail("")
-      setPassword("")
-      setConfirmPassword("")
-      return
+      });
+      setMode("login");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+      return;
     }
 
     if (mode === "login") {
       const foundUser = users.find(
         (u) => u.email === email && u.password === password
-      )
+      );
 
       if (foundUser) {
-        localStorage.setItem("loggedInUser", JSON.stringify(foundUser))
-        setMessage({ type: "success", text: "Амжилттай нэвтэрлээ!" })
-        setEmail("")
-        setPassword("")
+        localStorage.setItem("loggedInUser", JSON.stringify(foundUser));
+        setMessage({ type: "success", text: "Амжилттай нэвтэрлээ!" });
+        setEmail("");
+        setPassword("");
       } else {
-        setMessage({ type: "danger", text: "Имэйл эсвэл нууц үг буруу байна!" })
+        setMessage({
+          type: "danger",
+          text: "Имэйл эсвэл нууц үг буруу байна!",
+        });
       }
     }
-  }
+  };
 
   return (
-    <div className='card shadow p-4'>
-      <h2 className='mb-4 text-center'>
+    <div className="card shadow p-4">
+      <h2 className="mb-4 text-center">
         {mode === "login" ? "Нэвтрэх" : "Бүртгүүлэх"}
       </h2>
 
       {message && (
-        <div className={`alert alert-${message.type}`} role='alert'>
+        <div className={`alert alert-${message.type}`} role="alert">
           {message.text}
         </div>
       )}
 
       <form onSubmit={handleSubmit}>
-        <div className='mb-3'>
-          <label className='form-label'>Имэйл</label>
+        <div className="mb-3">
+          <label className="form-label">Имэйл</label>
           <input
-            type='email'
-            className='form-control'
+            type="email"
+            className="form-control"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
 
-        <div className='mb-3'>
-          <label className='form-label'>Нууц үг</label>
+        <div className="mb-3">
+          <label className="form-label">Нууц үг</label>
           <input
-            type='password'
-            className='form-control'
+            type="password"
+            className="form-control"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -98,11 +101,11 @@ export default function AuthForm() {
         </div>
 
         {mode === "register" && (
-          <div className='mb-3'>
-            <label className='form-label'>Нууц үг давтах</label>
+          <div className="mb-3">
+            <label className="form-label">Нууц үг давтах</label>
             <input
-              type='password'
-              className='form-control'
+              type="password"
+              className="form-control"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
@@ -111,7 +114,7 @@ export default function AuthForm() {
         )}
 
         <button
-          type='submit'
+          type="submit"
           className={`btn w-100 ${
             mode === "login" ? "btn-info" : "btn-success"
           }`}
@@ -120,12 +123,12 @@ export default function AuthForm() {
         </button>
       </form>
 
-      <div className='text-center mt-3'>
+      <div className="text-center mt-3">
         {mode === "login" ? (
           <p>
             Бүртгэлгүй юу?{" "}
             <button
-              className='btn btn-link p-0'
+              className="btn btn-link p-0"
               onClick={() => setMode("register")}
             >
               Бүртгүүлэх
@@ -135,7 +138,7 @@ export default function AuthForm() {
           <p>
             Аль хэдийн бүртгэлтэй юу?{" "}
             <button
-              className='btn btn-link p-0'
+              className="btn btn-link p-0"
               onClick={() => setMode("login")}
             >
               Нэвтрэх
@@ -144,5 +147,5 @@ export default function AuthForm() {
         )}
       </div>
     </div>
-  )
+  );
 }
