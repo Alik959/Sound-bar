@@ -3,7 +3,7 @@
 export default function AboutPage() {
   return (
     <div className="bg-gradient-to-b from-gray-900 via-black to-gray-900 text-gray-100 min-h-screen">
-      {/* Hero */}
+
       <section className="text-center py-20 px-6">
         <h1 className="text-5xl font-extrabold bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
           About Us
@@ -14,10 +14,10 @@ export default function AboutPage() {
         </p>
       </section>
 
-      {/* Divider */}
+
       <div className="w-24 h-1 mx-auto bg-gradient-to-r from-pink-500 to-purple-500 rounded-full mb-12"></div>
 
-      {/* Mission Section */}
+
       <section className="max-w-4xl mx-auto px-6 py-12">
         <h2 className="text-3xl font-bold mb-6 text-center">Our Mission</h2>
         <p className="text-lg leading-relaxed text-gray-300 text-center">
@@ -28,7 +28,6 @@ export default function AboutPage() {
         </p>
       </section>
 
-      {/* Values Section */}
       <section className="bg-gray-800/40 py-16">
         <div className="max-w-5xl mx-auto px-6 grid gap-10 md:grid-cols-3">
           <div className="p-6 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 shadow-lg hover:shadow-pink-500/30 transition">
@@ -45,8 +44,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* Closing / Call to Action */}
+ 
       <section className="text-center py-16 px-6">
         <h2 className="text-2xl font-bold mb-4">Join Our Journey</h2>
         <p className="text-gray-400 max-w-2xl mx-auto mb-8">
