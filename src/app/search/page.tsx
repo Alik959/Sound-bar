@@ -1,5 +1,6 @@
 "use client";
 
+import { data } from "framer-motion/client";
 import { useState } from "react";
 
 export default function GenresPage() {
@@ -18,6 +19,8 @@ export default function GenresPage() {
     setSongs(data.data || []); // Deezer uses `data`, not `results`
     setLoading(false);
   };
+
+  console.log(songs)
 
   return (
     <main className="flex min-h-screen flex-col items-center p-8">

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
     const url = new URL(req.url);
-    const query = url.searchParams.get("q") || "eminem";
+    const query = url.searchParams.get("q") || "";
 
     try {
         const res = await fetch(

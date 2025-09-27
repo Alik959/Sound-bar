@@ -10,9 +10,9 @@ export default function HomePage() {
   useEffect(() => {
     const fetchSongs = async () => {
       try {
-        const res = await fetch("/api/deezer");
+        const res = await fetch("https://api.deezer.com/chart/0");
         const data = await res.json();
-
+        console.log(data, res);
         if (Array.isArray(data.data)) {
           setSongs(data.data);
         } else {
@@ -29,7 +29,7 @@ export default function HomePage() {
 
     fetchSongs();
   }, []);
-
+console.log(songs);
   return (
     <main className="min-h-screen bg-gray-100 p-8">
       <h1 className="text-3xl font-bold mb-8">Discover Music</h1>
