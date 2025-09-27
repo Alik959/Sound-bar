@@ -23,7 +23,7 @@ export default function Footer() {
             </li>
             <li>
               <a href="/contact" className="block hover:text-white transition">
-                
+                Contact
               </a>
             </li>
           </ul>
