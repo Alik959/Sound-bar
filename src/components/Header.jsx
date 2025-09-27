@@ -23,10 +23,10 @@ export default function Header() {
             Albums
           </Link>
           <Link
-            href="/genres"
+            href="/search"
             className="hover:text-pink-400 transition-colors"
           >
-            Genres
+            Search
           </Link>
           <Link href="/about" className="hover:text-pink-400 transition-colors">
             About

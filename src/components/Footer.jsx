@@ -12,18 +12,18 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="/about" className="block hover:text-white transition">
-                About
+              <a href="/search" className="block hover:text-white transition">
+                Search
               </a>
             </li>
             <li>
-              <a href="/products" className="block hover:text-white transition">
+              <a href="/" className="block hover:text-white transition">
                 Products
               </a>
             </li>
             <li>
               <a href="/contact" className="block hover:text-white transition">
-                Contact
+                
               </a>
             </li>
           </ul>

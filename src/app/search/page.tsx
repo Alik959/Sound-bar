@@ -7,22 +7,21 @@ export default function GenresPage() {
   const [songs, setSongs] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
-  
+
   const searchSongs = async () => {
     if (!query) return;
     setLoading(true);
 
-    const res = await fetch(
-      `https://api.jamendo.com/v3.0/tracks/?client_id=79cf60ef&format=json&limit=10&search=${query}`
-    );
+    const res = await fetch(`/api/deezer?q=${query}`);
     const data = await res.json();
-    setSongs(data.results || []);
+
+    setSongs(data.data || []); // Deezer uses `data`, not `results`
     setLoading(false);
   };
 
   return (
     <main className="flex min-h-screen flex-col items-center p-8">
-      <h1 className="text-2xl font-bold mb-6">🎵 SoundBar search</h1>
+      <h1 className="text-2xl font-bold mb-6 text-black">🎵 SoundBar search</h1>
 
       <div className="flex gap-2 mb-6">
         <input
